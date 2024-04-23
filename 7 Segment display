@@ -1,0 +1,136 @@
+// Pin definitions for 7-segment display
+const int segA = 2;
+const int segB = 3;
+const int segC = 4;
+const int segD = 5;
+const int segE = 6;
+const int segF = 7;
+const int segG = 8;
+
+// Function prototypes
+void displayDigit(int digit);
+
+void setup() {
+  // Set pins as output
+  pinMode(segA, OUTPUT);
+  pinMode(segB, OUTPUT);
+  pinMode(segC, OUTPUT);
+  pinMode(segD, OUTPUT);
+  pinMode(segE, OUTPUT);
+  pinMode(segF, OUTPUT);
+  pinMode(segG, OUTPUT);
+}
+
+void loop() {
+  // Display digits 0 to 9 in a loop
+  for (int i = 0; i <= 9; i++) {
+    displayDigit(i);
+    delay(1000); // Display each digit for 1 second
+  }
+}
+
+void displayDigit(int digit) {
+  // Define segment states for each digit
+  switch (digit) {
+    case 0:
+      digitalWrite(segA, HIGH);
+      digitalWrite(segB, HIGH);
+      digitalWrite(segC, HIGH);
+      digitalWrite(segD, HIGH);
+      digitalWrite(segE, HIGH);
+      digitalWrite(segF, HIGH);
+      digitalWrite(segG, LOW);
+      break;
+    case 1:
+      digitalWrite(segA, LOW);
+      digitalWrite(segB, HIGH);
+      digitalWrite(segC, HIGH);
+      digitalWrite(segD, LOW);
+      digitalWrite(segE, LOW);
+      digitalWrite(segF, LOW);
+      digitalWrite(segG, LOW);
+      break;
+    case 2:
+      digitalWrite(segA, HIGH);
+      digitalWrite(segB, HIGH);
+      digitalWrite(segC, LOW);
+      digitalWrite(segD, HIGH);
+      digitalWrite(segE, HIGH);
+      digitalWrite(segF, LOW);
+      digitalWrite(segG, HIGH);
+      break;
+    case 3:
+      digitalWrite(segA, HIGH);
+      digitalWrite(segB, HIGH);
+      digitalWrite(segC, HIGH);
+      digitalWrite(segD, HIGH);
+      digitalWrite(segE, LOW);
+      digitalWrite(segF, LOW);
+      digitalWrite(segG, HIGH);
+      break;
+    case 4:
+      digitalWrite(segA, LOW);
+      digitalWrite(segB, HIGH);
+      digitalWrite(segC, HIGH);
+      digitalWrite(segD, LOW);
+      digitalWrite(segE, LOW);
+      digitalWrite(segF, HIGH);
+      digitalWrite(segG, HIGH);
+      break;
+    case 5:
+      digitalWrite(segA, HIGH);
+      digitalWrite(segB, LOW);
+      digitalWrite(segC, HIGH);
+      digitalWrite(segD, HIGH);
+      digitalWrite(segE, LOW);
+      digitalWrite(segF, HIGH);
+      digitalWrite(segG, HIGH);
+      break;
+    case 6:
+      digitalWrite(segA, HIGH);
+      digitalWrite(segB, LOW);
+      digitalWrite(segC, HIGH);
+      digitalWrite(segD, HIGH);
+      digitalWrite(segE, HIGH);
+      digitalWrite(segF, HIGH);
+      digitalWrite(segG, HIGH);
+      break;
+    case 7:
+      digitalWrite(segA, HIGH);
+      digitalWrite(segB, HIGH);
+      digitalWrite(segC, HIGH);
+      digitalWrite(segD, LOW);
+      digitalWrite(segE, LOW);
+      digitalWrite(segF, LOW);
+      digitalWrite(segG, LOW);
+      break;
+    case 8:
+      digitalWrite(segA, HIGH);
+      digitalWrite(segB, HIGH);
+      digitalWrite(segC, HIGH);
+      digitalWrite(segD, HIGH);
+      digitalWrite(segE, HIGH);
+      digitalWrite(segF, HIGH);
+      digitalWrite(segG, HIGH);
+      break;
+    case 9:
+      digitalWrite(segA, HIGH);
+      digitalWrite(segB, HIGH);
+      digitalWrite(segC, HIGH);
+      digitalWrite(segD, HIGH);
+      digitalWrite(segE, LOW);
+      digitalWrite(segF, HIGH);
+      digitalWrite(segG, HIGH);
+      break;
+    default:
+      // Turn off all segments if an invalid digit is provided
+      digitalWrite(segA, LOW);
+      digitalWrite(segB, LOW);
+      digitalWrite(segC, LOW);
+      digitalWrite(segD, LOW);
+      digitalWrite(segE, LOW);
+      digitalWrite(segF, LOW);
+      digitalWrite(segG, LOW);
+      break;
+  }
+}
