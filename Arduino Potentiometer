@@ -1,0 +1,21 @@
+
+const int LED = 9;
+const int POT = A0;
+
+const int potreading = 0;
+
+void setup(){
+Serial.begin(9600);
+  pinMode(LED, INPUT);
+  pinMode(POT, OUTPUT);
+}
+void loop()
+{
+int potreading = analogRead(A0);
+  
+  potreading = map(potreading,0,1023,0,255);
+  
+  Serial.println(potreading);
+  
+  analogWrite(LED, potreading);
+}
